@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 import psycopg
 import os
 from dotenv import load_dotenv
-import openai
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from flask_cors import CORS
