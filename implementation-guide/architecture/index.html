@@ -534,11 +534,13 @@
 
 
 <h1 id="architecture-overview">Architecture Overview</h1>
-<pre><code class="language-mermaid">graph TD
-    S3[Site Estático (S3)] -- requisições HTTP --&gt; EC2[API Flask (EC2)]
-    User[Usuário] -- acessa --&gt; S3
-    EC2 -- conecta --&gt; RDS[(PostgreSQL RDS)]
-</code></pre>
+<p><img alt="Diagrama da Arquitetura" src="../arquitetura.png" /></p>
+<p><strong>Descrição:</strong></p>
+<ol>
+<li>O usuário acessa o site estático hospedado no Amazon S3.</li>
+<li>O site faz requisições HTTP para a API desenvolvida em Flask, que está rodando em uma instância EC2.</li>
+<li>A API Flask se conecta ao banco de dados PostgreSQL hospedado no Amazon RDS para armazenar e recuperar dados.</li>
+</ol>
 <p><strong>Descrição:</strong></p>
 <ol>
 <li>O usuário acessa o site estático hospedado no Amazon S3.</li>
