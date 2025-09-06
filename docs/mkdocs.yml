@@ -1,6 +1,4 @@
 site_name: Aula 2 API Docs
-docs_dir: en
-site_dir: ./site/en
 theme:
   name: material
   language: en
