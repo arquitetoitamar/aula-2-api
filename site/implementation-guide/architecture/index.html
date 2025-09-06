@@ -499,6 +499,145 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Plataformas e Níveis de Maturidade
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plataformas e Níveis de Maturidade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platforms-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platforms-services/nivel_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nivel 1 - Hardware e Infraestrutura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platforms-services/nivel_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nivel 2 - Modelos e Serviços de ML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platforms-services/nivel_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nivel 3 - Aplicacoes e Serviços de IA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -534,11 +673,13 @@
 
 
 <h1 id="architecture-overview">Architecture Overview</h1>
-<pre><code class="language-mermaid">graph TD
-    S3[Site Estático (S3)] -- requisições HTTP --&gt; EC2[API Flask (EC2)]
-    User[Usuário] -- acessa --&gt; S3
-    EC2 -- conecta --&gt; RDS[(PostgreSQL RDS)]
-</code></pre>
+<p><img alt="Diagrama da Arquitetura" src="../arquitetura.png" /></p>
+<p><strong>Descrição:</strong></p>
+<ol>
+<li>O usuário acessa o site estático hospedado no Amazon S3.</li>
+<li>O site faz requisições HTTP para a API desenvolvida em Flask, que está rodando em uma instância EC2.</li>
+<li>A API Flask se conecta ao banco de dados PostgreSQL hospedado no Amazon RDS para armazenar e recuperar dados.</li>
+</ol>
 <p><strong>Descrição:</strong></p>
 <ol>
 <li>O usuário acessa o site estático hospedado no Amazon S3.</li>

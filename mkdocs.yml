@@ -20,3 +20,9 @@ nav:
           - How to integrate Keycloak with AD/LDAP?: implementation-guide/tutorials/ad-ldap.md
       - Additional resources: implementation-guide/additional-resources.md
       - Revisions: implementation-guide/revisions.md
+
+  - "Plataformas e Níveis de Maturidade":
+      - "Visão Geral": platforms-services/README.md
+      - "Nivel 1 - Hardware e Infraestrutura": platforms-services/nivel_1.md
+      - "Nivel 2 - Modelos e Serviços de ML": platforms-services/nivel_2.md
+      - "Nivel 3 - Aplicacoes e Serviços de IA": platforms-services/nivel_3.md
