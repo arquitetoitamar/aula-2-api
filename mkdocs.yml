@@ -1,4 +1,4 @@
-site_name: Aula 2 API Docs
+site_name: Plataforma Cognitiva
 
 # Tema Material para MkDocs
 # https://squidfunk.github.io/mkdocs-material/
@@ -9,18 +9,14 @@ theme:
     - navigation.expand
 
 nav:
-  - Implementation Guide:
+  - Guia de implementação:
       - Overview: index.md
-      - Cost: implementation-guide/cost.md
-      - Architecture overview: implementation-guide/architecture.md
-      - Considerations: implementation-guide/considerations.md
-      - Deployment: implementation-guide/deployment.md
       - Tutorials:
-          - How to integrate Keycloak with Amazon API Gateway?: implementation-guide/tutorials/api-gateway.md
-          - How to integrate Keycloak with AD/LDAP?: implementation-guide/tutorials/ad-ldap.md
-      - Additional resources: implementation-guide/additional-resources.md
-      - Revisions: implementation-guide/revisions.md
-
+          - "Como criar EC2 Ubuntu": implementation-guide/tutorials/criar-ec2.md
+          - "Como criar RDS PostgreSQL com pgvector": implementation-guide/tutorials/criar-RDS.md
+          - "Como criar Bucket S3": implementation-guide/tutorials/criar-s3.md
+          - "Como criar site no S3 e CloudFront": implementation-guide/tutorials/criar-site.md
+          - "Como conectar o ec2 no RDS": implementation-guide/tutorials/conectar-ec2-rds.md
   - "Plataformas e Níveis de Maturidade":
       - "Visão Geral": platforms-services/README.md
       - "Nivel 1 - Hardware e Infraestrutura": platforms-services/nivel_1.md
