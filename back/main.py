@@ -8,7 +8,7 @@ from flask_cors import CORS
 import PyPDF2
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:8080"], allow_headers="*", supports_credentials=True)
+CORS(app, origins=["*"], allow_headers="*", supports_credentials=True)
 load_dotenv()
 
 def get_conn():
