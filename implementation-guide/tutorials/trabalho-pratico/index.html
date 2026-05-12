@@ -1,0 +1,2131 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../revisions/">
+      
+      
+        <link rel="next" href="../criar-ec2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>🎯 Trabalho Prático (Passo a Passo) - Plataforma Cognitiva</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#trabalho-pratico-deploy-de-plataforma-cognitiva-na-aws" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Plataforma Cognitiva" class="md-header__button md-logo" aria-label="Plataforma Cognitiva" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Plataforma Cognitiva
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🎯 Trabalho Prático (Passo a Passo)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Plataforma Cognitiva" class="md-nav__button md-logo" aria-label="Plataforma Cognitiva" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Plataforma Cognitiva
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Implementação
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guia de Implementação
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../considerations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Considerações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additional-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos Adicionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../revisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revisões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutoriais
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutoriais
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Trabalho Prático (Passo a Passo)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Trabalho Prático (Passo a Passo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-a-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-criar-security-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Criar Security Groups
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Criar Security Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-group-da-ec2-aula2-ec2-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group da EC2 (aula2-ec2-sg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-group-do-rds-aula2-rds-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group do RDS (aula2-rds-sg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-rds-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Criar RDS PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-criar-key-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Criar Key Pair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-criar-ec2-t3medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Criar EC2 t3.medium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-conectar-na-ec2-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conectar na EC2 via SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-instalar-python-311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Instalar Python 3.11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-clonar-o-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Clonar o Repositório
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-habilitar-pgvector-no-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Habilitar pgvector no RDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-configurar-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configurar Variáveis de Ambiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-criar-ambiente-virtual-e-instalar-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Criar Ambiente Virtual e Instalar Dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-alterar-a-porta-para-5000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Alterar a Porta para 5000
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-testar-manualmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Testar Manualmente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-criar-servico-systemd-rodar-permanentemente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Criar Serviço Systemd (rodar permanentemente)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-verificar-se-esta-rodando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Verificar se está Rodando
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints da API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints da API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-de-uso-com-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplos de uso com curl
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-uteis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandos Úteis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos-Chave
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos-Chave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rag-retrieval-augmented-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG (Retrieval-Augmented Generation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgvector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pgvector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entregaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entregáveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criar-ec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como criar EC2 Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criar-RDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como criar RDS PostgreSQL com pgvector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criar-bucket-s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como criar Bucket S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criar-site-s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como criar site no S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conectar-ec2-rds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como conectar EC2 ao RDS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plataformas e Níveis de Maturidade
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plataformas e Níveis de Maturidade
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../platforms-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../platforms-services/nivel_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nivel 1 - Hardware e Infraestrutura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../platforms-services/nivel_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nivel 2 - Modelos e Serviços de ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../platforms-services/nivel_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nivel 3 - Aplicações e Serviços de IA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-a-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-criar-security-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Criar Security Groups
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Criar Security Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-group-da-ec2-aula2-ec2-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group da EC2 (aula2-ec2-sg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-group-do-rds-aula2-rds-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group do RDS (aula2-rds-sg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-rds-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Criar RDS PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-criar-key-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Criar Key Pair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-criar-ec2-t3medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Criar EC2 t3.medium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-conectar-na-ec2-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conectar na EC2 via SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-instalar-python-311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Instalar Python 3.11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-clonar-o-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Clonar o Repositório
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-habilitar-pgvector-no-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Habilitar pgvector no RDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-configurar-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configurar Variáveis de Ambiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-criar-ambiente-virtual-e-instalar-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Criar Ambiente Virtual e Instalar Dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-alterar-a-porta-para-5000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Alterar a Porta para 5000
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-testar-manualmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Testar Manualmente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-criar-servico-systemd-rodar-permanentemente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Criar Serviço Systemd (rodar permanentemente)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-verificar-se-esta-rodando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Verificar se está Rodando
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints da API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints da API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-de-uso-com-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplos de uso com curl
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-uteis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandos Úteis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos-Chave
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos-Chave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rag-retrieval-augmented-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG (Retrieval-Augmented Generation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgvector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pgvector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entregaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entregáveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="trabalho-pratico-deploy-de-plataforma-cognitiva-na-aws">Trabalho Prático — Deploy de Plataforma Cognitiva na AWS</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Realizar o deploy completo de uma API de <strong>RAG (Retrieval-Augmented Generation)</strong> com LLM local na AWS, utilizando EC2 + RDS PostgreSQL com pgvector.</p>
+<p>A aplicação permite:
+- Upload de documentos (PDF/texto)
+- Busca semântica por similaridade vetorial
+- Chat com IA usando RAG (busca contextual + geração com LLM local)</p>
+<hr />
+<h2 id="arquitetura">Arquitetura</h2>
+<pre><code>┌─────────────┐       ┌──────────────────┐       ┌─────────────────────┐
+│  Frontend   │──────▶│  EC2 t3.medium   │──────▶│  RDS PostgreSQL 15  │
+│  (S3 / PC)  │ HTTP  │  Flask API :5000 │  TCP  │  + pgvector         │
+└─────────────┘       └──────────────────┘       └─────────────────────┘
+                              │
+                      ┌───────┴───────┐
+                      │ Modelos IA    │
+                      │ - Embeddings  │
+                      │ - LLM local   │
+                      └───────────────┘
+</code></pre>
+<hr />
+<h2 id="passo-a-passo">Passo a Passo</h2>
+<h3 id="1-criar-security-groups">1. Criar Security Groups</h3>
+<h4 id="security-group-da-ec2-aula2-ec2-sg">Security Group da EC2 (<code>aula2-ec2-sg</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>Porta</th>
+<th>Protocolo</th>
+<th>Origem</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>TCP</td>
+<td>0.0.0.0/0</td>
+<td>SSH</td>
+</tr>
+<tr>
+<td>80</td>
+<td>TCP</td>
+<td>0.0.0.0/0</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>TCP</td>
+<td>0.0.0.0/0</td>
+<td>Flask API</td>
+</tr>
+</tbody>
+</table>
+<h4 id="security-group-do-rds-aula2-rds-sg">Security Group do RDS (<code>aula2-rds-sg</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>Porta</th>
+<th>Protocolo</th>
+<th>Origem</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5432</td>
+<td>TCP</td>
+<td>aula2-ec2-sg</td>
+<td>PostgreSQL (apenas da EC2)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-criar-rds-postgresql">2. Criar RDS PostgreSQL</h3>
+<p>No console AWS → RDS → Create Database:</p>
+<table>
+<thead>
+<tr>
+<th>Configuração</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engine</td>
+<td>PostgreSQL 15</td>
+</tr>
+<tr>
+<td>Template</td>
+<td>Free tier / Dev/Test</td>
+</tr>
+<tr>
+<td>DB Instance Class</td>
+<td>db.t3.micro</td>
+</tr>
+<tr>
+<td>DB Instance Identifier</td>
+<td><code>aula2-postgres</code></td>
+</tr>
+<tr>
+<td>Master Username</td>
+<td><code>postgres</code></td>
+</tr>
+<tr>
+<td>Master Password</td>
+<td>(escolha uma senha segura)</td>
+</tr>
+<tr>
+<td>DB Name</td>
+<td><code>aula2db</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>20 GB gp2</td>
+</tr>
+<tr>
+<td>VPC Security Group</td>
+<td><code>aula2-rds-sg</code></td>
+</tr>
+<tr>
+<td>Public Access</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⏳ A criação leva ~5-10 minutos. Anote o <strong>Endpoint</strong> quando estiver disponível.</p>
+</blockquote>
+<hr />
+<h3 id="3-criar-key-pair">3. Criar Key Pair</h3>
+<p>No console AWS → EC2 → Key Pairs → Create Key Pair:</p>
+<ul>
+<li><strong>Name</strong>: <code>aula2-key</code></li>
+<li><strong>Type</strong>: RSA</li>
+<li><strong>Format</strong>: .pem</li>
+</ul>
+<blockquote>
+<p>⚠️ Baixe e guarde o arquivo <code>.pem</code> — ele não pode ser baixado novamente!</p>
+</blockquote>
+<p>No terminal, ajuste as permissões:</p>
+<pre><code class="language-bash">chmod 400 aula2-key.pem
+</code></pre>
+<hr />
+<h3 id="4-criar-ec2-t3medium">4. Criar EC2 t3.medium</h3>
+<p>No console AWS → EC2 → Launch Instance:</p>
+<table>
+<thead>
+<tr>
+<th>Configuração</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td><code>aula2-api-server</code></td>
+</tr>
+<tr>
+<td>AMI</td>
+<td>Ubuntu Server 22.04 LTS</td>
+</tr>
+<tr>
+<td>Instance Type</td>
+<td><strong>t3.medium</strong> (2 vCPU, 4GB RAM)</td>
+</tr>
+<tr>
+<td>Key Pair</td>
+<td><code>aula2-key</code></td>
+</tr>
+<tr>
+<td>Security Group</td>
+<td><code>aula2-ec2-sg</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>30 GB gp3</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ Usamos t3.medium porque o modelo LLM precisa de ~2GB de RAM para carregar.</p>
+</blockquote>
+<hr />
+<h3 id="5-conectar-na-ec2-via-ssh">5. Conectar na EC2 via SSH</h3>
+<pre><code class="language-bash">ssh -i &quot;aula2-key.pem&quot; ubuntu@&lt;IP_PUBLICO_DA_EC2&gt;
+</code></pre>
+<hr />
+<h3 id="6-instalar-python-311">6. Instalar Python 3.11</h3>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install -y software-properties-common git postgresql-client
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
+sudo apt install -y python3.11 python3.11-venv python3.11-dev
+</code></pre>
+<hr />
+<h3 id="7-clonar-o-repositorio">7. Clonar o Repositório</h3>
+<pre><code class="language-bash">mkdir -p /home/ubuntu/aula2_api
+cd /home/ubuntu/aula2_api
+git clone https://github.com/arquitetoitamar/aula-2-api.git .
+cd back
+</code></pre>
+<hr />
+<h3 id="8-habilitar-pgvector-no-rds">8. Habilitar pgvector no RDS</h3>
+<pre><code class="language-bash">PGPASSWORD='&lt;SENHA_RDS&gt;' psql -h &lt;ENDPOINT_RDS&gt; -U postgres -d aula2db -c &quot;CREATE EXTENSION IF NOT EXISTS vector;&quot;
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-bash">PGPASSWORD='Postgres123!' psql -h aula2-postgres.cjrzofqq7bys.us-east-1.rds.amazonaws.com -U postgres -d aula2db -c &quot;CREATE EXTENSION IF NOT EXISTS vector;&quot;
+</code></pre>
+<hr />
+<h3 id="9-configurar-variaveis-de-ambiente">9. Configurar Variáveis de Ambiente</h3>
+<pre><code class="language-bash">cat &gt; .env &lt;&lt; EOF
+DB_HOST=&lt;ENDPOINT_RDS&gt;
+DB_PORT=5432
+DB_NAME=aula2db
+DB_USER=postgres
+DB_PASSWORD=&lt;SENHA_RDS&gt;
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+EOF
+</code></pre>
+<hr />
+<h3 id="10-criar-ambiente-virtual-e-instalar-dependencias">10. Criar Ambiente Virtual e Instalar Dependências</h3>
+<pre><code class="language-bash">python3.11 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+</code></pre>
+<blockquote>
+<p>⏳ A instalação do PyTorch e SentenceTransformers pode levar ~5 minutos.</p>
+</blockquote>
+<hr />
+<h3 id="11-alterar-a-porta-para-5000">11. Alterar a Porta para 5000</h3>
+<p>Edite o arquivo <code>main.py</code> e altere a última linha:</p>
+<pre><code class="language-bash">sed -i 's/port=3000/port=5000/' main.py
+</code></pre>
+<hr />
+<h3 id="12-testar-manualmente">12. Testar Manualmente</h3>
+<pre><code class="language-bash">python main.py
+</code></pre>
+<p>Deve aparecer:</p>
+<pre><code>Carregando LLM: HuggingFaceTB/SmolLM2-360M-Instruct...
+LLM carregado!
+ * Running on http://0.0.0.0:5000
+</code></pre>
+<p>Teste de outro terminal ou navegador: <code>http://&lt;IP_EC2&gt;:5000/api/data</code></p>
+<p>Pare com <code>Ctrl+C</code> após confirmar que funciona.</p>
+<hr />
+<h3 id="13-criar-servico-systemd-rodar-permanentemente">13. Criar Serviço Systemd (rodar permanentemente)</h3>
+<pre><code class="language-bash">sudo tee /etc/systemd/system/aula2api.service &lt;&lt; EOF
+[Unit]
+Description=Aula2 Flask API
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/aula2_api/back
+Environment=&quot;PATH=/home/ubuntu/aula2_api/back/venv/bin&quot;
+ExecStart=/home/ubuntu/aula2_api/back/venv/bin/python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable aula2api
+sudo systemctl start aula2api
+</code></pre>
+<hr />
+<h3 id="14-verificar-se-esta-rodando">14. Verificar se está Rodando</h3>
+<pre><code class="language-bash"># Status do serviço
+sudo systemctl status aula2api
+
+# Logs em tempo real
+sudo journalctl -u aula2api -f
+
+# Testar localmente
+curl http://localhost:5000/api/data
+</code></pre>
+<hr />
+<h2 id="endpoints-da-api">Endpoints da API</h2>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Descrição</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/data</code></td>
+<td>Health check</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/upload</code></td>
+<td>Upload de documento</td>
+<td><code>file</code> (multipart)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/documents</code></td>
+<td>Lista documentos</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/ask</code></td>
+<td>Busca em documento específico</td>
+<td><code>{"question": "...", "doc_id": 1}</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/ask_all</code></td>
+<td>Busca em todos os documentos</td>
+<td><code>{"question": "..."}</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/chat</code></td>
+<td>Chat com RAG + LLM</td>
+<td><code>{"question": "..."}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="exemplos-de-uso-com-curl">Exemplos de uso com curl</h3>
+<pre><code class="language-bash"># Health check
+curl http://&lt;IP_EC2&gt;:5000/api/data
+
+# Upload de documento
+curl -X POST http://&lt;IP_EC2&gt;:5000/upload -F &quot;file=@documento.pdf&quot;
+
+# Listar documentos
+curl http://&lt;IP_EC2&gt;:5000/documents
+
+# Busca semântica em todos
+curl -X POST http://&lt;IP_EC2&gt;:5000/ask_all \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;question&quot;: &quot;o que é inteligência artificial?&quot;}'
+
+# Chat com RAG
+curl -X POST http://&lt;IP_EC2&gt;:5000/chat \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;question&quot;: &quot;resuma o documento&quot;}'
+</code></pre>
+<hr />
+<h2 id="frontend">Frontend</h2>
+<p>O arquivo <code>front/index.html</code> é um chat web que se conecta à API. Para usar:</p>
+<ol>
+<li>Abra o arquivo no navegador</li>
+<li>No campo <strong>API URL</strong> (canto inferior esquerdo), coloque: <code>http://&lt;IP_EC2&gt;:5000</code></li>
+<li>Faça upload de um documento</li>
+<li>Converse com o agente IA</li>
+</ol>
+<hr />
+<h2 id="comandos-uteis">Comandos Úteis</h2>
+<pre><code class="language-bash"># Reiniciar API
+sudo systemctl restart aula2api
+
+# Ver logs
+sudo journalctl -u aula2api -f
+
+# Parar API
+sudo systemctl stop aula2api
+
+# Conectar no banco
+PGPASSWORD='&lt;SENHA&gt;' psql -h &lt;ENDPOINT_RDS&gt; -U postgres -d aula2db
+
+# Ver documentos no banco
+SELECT id, filename FROM documents;
+
+# Ver extensões instaladas
+\dx
+</code></pre>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Solução</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type "vector" does not exist</code></td>
+<td>Execute <code>CREATE EXTENSION IF NOT EXISTS vector;</code> no RDS</td>
+</tr>
+<tr>
+<td>API não inicia</td>
+<td>Verifique <code>.env</code> com <code>cat .env</code> e logs com <code>journalctl -u aula2api</code></td>
+</tr>
+<tr>
+<td>Não conecta no RDS</td>
+<td>Verifique se o SG do RDS permite a porta 5432 do SG da EC2</td>
+</tr>
+<tr>
+<td>Timeout no upload</td>
+<td>Documentos grandes demoram para gerar embeddings — aguarde</td>
+</tr>
+<tr>
+<td>Porta 5000 não acessível</td>
+<td>Verifique se o SG da EC2 tem a porta 5000 aberta</td>
+</tr>
+<tr>
+<td><code>ModuleNotFoundError</code></td>
+<td>Ative o venv: <code>source /home/ubuntu/aula2_api/back/venv/bin/activate</code></td>
+</tr>
+<tr>
+<td>Memória insuficiente</td>
+<td>t3.medium tem 4GB — se travar, reinicie: <code>sudo systemctl restart aula2api</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conceitos-chave">Conceitos-Chave</h2>
+<h3 id="rag-retrieval-augmented-generation">RAG (Retrieval-Augmented Generation)</h3>
+<p>Técnica que combina busca semântica com geração de texto:
+1. Documentos são divididos em chunks e convertidos em vetores (embeddings)
+2. Na pergunta, busca os chunks mais similares por distância vetorial
+3. Usa esses chunks como contexto para o LLM gerar a resposta</p>
+<h3 id="embeddings">Embeddings</h3>
+<p>Representação numérica do significado de um texto. Textos similares ficam próximos no espaço vetorial (384 dimensões).</p>
+<h3 id="pgvector">pgvector</h3>
+<p>Extensão do PostgreSQL para armazenar e buscar vetores. Operador <code>&lt;-&gt;</code> calcula distância euclidiana.</p>
+<h3 id="chunking">Chunking</h3>
+<p>Dividir documentos em pedaços menores (500 chars, overlap 50) antes de indexar. Sem chunking, a busca perde precisão.</p>
+<hr />
+<h2 id="entregaveis">Entregáveis</h2>
+<ol>
+<li>✅ EC2 t3.medium rodando a API na porta 5000</li>
+<li>✅ RDS PostgreSQL com pgvector habilitado</li>
+<li>✅ API respondendo em <code>http://&lt;IP_EC2&gt;:5000</code></li>
+<li>✅ Upload de pelo menos 1 documento</li>
+<li>✅ Demonstração do chat funcionando com RAG</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
