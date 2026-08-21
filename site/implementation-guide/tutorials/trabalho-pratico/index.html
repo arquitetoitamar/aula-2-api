@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../criar-ec2/">
+        <link rel="prev" href="../../revisions/">
       
       
-        <link rel="next" href="../criar-bucket-s3/">
+        <link rel="next" href="../criar-ec2/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Como criar RDS PostgreSQL com pgvector - Plataforma Cognitiva</title>
+        <title>🎯 Trabalho Prático (Passo a Passo) - Plataforma Cognitiva</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#como-criar-uma-instancia-rds-postgresql-com-pgvector" class="md-skip">
+        <a href="#trabalho-pratico-deploy-de-plataforma-cognitiva-na-aws" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Como criar RDS PostgreSQL com pgvector
+              🎯 Trabalho Prático (Passo a Passo)
             
           </span>
         </div>
@@ -523,10 +523,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../trabalho-pratico/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Trabalho Prático (Passo a Passo)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -542,6 +569,380 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-a-passo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo a Passo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a Passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-criar-security-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Criar Security Groups
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Criar Security Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-group-da-ec2-aula2-ec2-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group da EC2 (aula2-ec2-sg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-group-do-rds-aula2-rds-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group do RDS (aula2-rds-sg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-rds-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Criar RDS PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-criar-key-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Criar Key Pair
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-criar-ec2-t3medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Criar EC2 t3.medium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-conectar-na-ec2-via-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conectar na EC2 via SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-instalar-python-311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Instalar Python 3.11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-clonar-o-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Clonar o Repositório
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-habilitar-pgvector-no-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Habilitar pgvector no RDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-configurar-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configurar Variáveis de Ambiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-criar-ambiente-virtual-e-instalar-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Criar Ambiente Virtual e Instalar Dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-alterar-a-porta-para-5000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Alterar a Porta para 5000
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-testar-manualmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Testar Manualmente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-criar-servico-systemd-rodar-permanentemente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Criar Serviço Systemd (rodar permanentemente)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-verificar-se-esta-rodando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Verificar se está Rodando
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints da API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints da API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-de-uso-com-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplos de uso com curl
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-uteis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandos Úteis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos-Chave
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos-Chave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rag-retrieval-augmented-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG (Retrieval-Augmented Generation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgvector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pgvector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entregaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entregáveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -579,37 +980,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Como criar RDS PostgreSQL com pgvector
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../criar-RDS/" class="md-nav__link">
         
   
   
@@ -625,253 +999,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-acesse-o-console-aws" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Acesse o Console AWS
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-acesse-o-servico-rds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Acesse o serviço RDS
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-clique-em-create-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Clique em "Create Database"
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-configure-o-banco-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Configure o banco de dados
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Configure o banco de dados">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#opcoes-basicas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Opções básicas:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#templates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Templates:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configurações:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracao-da-instancia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuração da instância:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conectividade" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conectividade:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-configuracoes-adicionais" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Configurações adicionais
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Configurações adicionais">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#opcoes-do-banco" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Opções do banco:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monitoramento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitoramento:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-clique-em-create-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Clique em "Create Database"
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-configure-a-extensao-pgvector" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Configure a extensão pgvector
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-teste-a-funcionalidade" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Teste a funcionalidade
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-configuracoes-de-seguranca" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Configurações de segurança
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Configurações de segurança">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#para-producao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Para produção:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-de-conexao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        String de conexão:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1171,10 +1298,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-acesse-o-console-aws" class="md-nav__link">
+  <a href="#objetivo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Acesse o Console AWS
+        Objetivo
       
     </span>
   </a>
@@ -1182,10 +1309,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-acesse-o-servico-rds" class="md-nav__link">
+  <a href="#arquitetura" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Acesse o serviço RDS
+        Arquitetura
       
     </span>
   </a>
@@ -1193,33 +1320,34 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-clique-em-create-database" class="md-nav__link">
+  <a href="#passo-a-passo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Clique em "Create Database"
+        Passo a Passo
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-configure-o-banco-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Configure o banco de dados
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Configure o banco de dados">
+    <nav class="md-nav" aria-label="Passo a Passo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#opcoes-basicas" class="md-nav__link">
+  <a href="#1-criar-security-groups" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Opções básicas:
+        1. Criar Security Groups
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Criar Security Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-group-da-ec2-aula2-ec2-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group da EC2 (aula2-ec2-sg)
       
     </span>
   </a>
@@ -1227,10 +1355,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#templates" class="md-nav__link">
+  <a href="#security-group-do-rds-aula2-rds-sg" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Templates:
+        Security Group do RDS (aula2-rds-sg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-rds-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Criar RDS PostgreSQL
       
     </span>
   </a>
@@ -1238,10 +1382,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuracoes" class="md-nav__link">
+  <a href="#3-criar-key-pair" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configurações:
+        3. Criar Key Pair
       
     </span>
   </a>
@@ -1249,10 +1393,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuracao-da-instancia" class="md-nav__link">
+  <a href="#4-criar-ec2-t3medium" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuração da instância:
+        4. Criar EC2 t3.medium
       
     </span>
   </a>
@@ -1260,10 +1404,109 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conectividade" class="md-nav__link">
+  <a href="#5-conectar-na-ec2-via-ssh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conectividade:
+        5. Conectar na EC2 via SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-instalar-python-311" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Instalar Python 3.11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-clonar-o-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Clonar o Repositório
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-habilitar-pgvector-no-rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Habilitar pgvector no RDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-configurar-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configurar Variáveis de Ambiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-criar-ambiente-virtual-e-instalar-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Criar Ambiente Virtual e Instalar Dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-alterar-a-porta-para-5000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Alterar a Porta para 5000
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-testar-manualmente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Testar Manualmente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-criar-servico-systemd-rodar-permanentemente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Criar Serviço Systemd (rodar permanentemente)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-verificar-se-esta-rodando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Verificar se está Rodando
       
     </span>
   </a>
@@ -1276,44 +1519,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-configuracoes-adicionais" class="md-nav__link">
+  <a href="#endpoints-da-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Configurações adicionais
+        Endpoints da API
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Configurações adicionais">
+    <nav class="md-nav" aria-label="Endpoints da API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#opcoes-do-banco" class="md-nav__link">
+  <a href="#exemplos-de-uso-com-curl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Opções do banco:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monitoramento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitoramento:
+        Exemplos de uso com curl
       
     </span>
   </a>
@@ -1326,10 +1547,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-clique-em-create-database" class="md-nav__link">
+  <a href="#frontend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Clique em "Create Database"
+        Frontend
       
     </span>
   </a>
@@ -1337,10 +1558,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-configure-a-extensao-pgvector" class="md-nav__link">
+  <a href="#comandos-uteis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Configure a extensão pgvector
+        Comandos Úteis
       
     </span>
   </a>
@@ -1348,10 +1569,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-teste-a-funcionalidade" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Teste a funcionalidade
+        Troubleshooting
       
     </span>
   </a>
@@ -1359,22 +1580,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-configuracoes-de-seguranca" class="md-nav__link">
+  <a href="#conceitos-chave" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Configurações de segurança
+        Conceitos-Chave
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="9. Configurações de segurança">
+    <nav class="md-nav" aria-label="Conceitos-Chave">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#para-producao" class="md-nav__link">
+  <a href="#rag-retrieval-augmented-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Para produção:
+        RAG (Retrieval-Augmented Generation)
       
     </span>
   </a>
@@ -1382,10 +1603,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#string-de-conexao" class="md-nav__link">
+  <a href="#embeddings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        String de conexão:
+        Embeddings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgvector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pgvector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunking
       
     </span>
   </a>
@@ -1394,6 +1637,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entregaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entregáveis
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1414,127 +1668,446 @@
 
 
 
-<h1 id="como-criar-uma-instancia-rds-postgresql-com-pgvector">Como criar uma instância RDS PostgreSQL com pgvector</h1>
+<h1 id="trabalho-pratico-deploy-de-plataforma-cognitiva-na-aws">Trabalho Prático — Deploy de Plataforma Cognitiva na AWS</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Realizar o deploy completo de uma API de <strong>RAG (Retrieval-Augmented Generation)</strong> com LLM local na AWS, utilizando EC2 + RDS PostgreSQL com pgvector.</p>
+<p>A aplicação permite:
+- Upload de documentos (PDF/texto)
+- Busca semântica por similaridade vetorial
+- Chat com IA usando RAG (busca contextual + geração com LLM local)</p>
+<hr />
+<h2 id="arquitetura">Arquitetura</h2>
+<pre><code>┌─────────────┐       ┌──────────────────┐       ┌─────────────────────┐
+│  Frontend   │──────▶│  EC2 t3.medium   │──────▶│  RDS PostgreSQL 15  │
+│  (S3 / PC)  │ HTTP  │  Flask API :5000 │  TCP  │  + pgvector         │
+└─────────────┘       └──────────────────┘       └─────────────────────┘
+                              │
+                      ┌───────┴───────┐
+                      │ Modelos IA    │
+                      │ - Embeddings  │
+                      │ - LLM local   │
+                      └───────────────┘
+</code></pre>
+<hr />
+<h2 id="passo-a-passo">Passo a Passo</h2>
+<h3 id="1-criar-security-groups">1. Criar Security Groups</h3>
+<h4 id="security-group-da-ec2-aula2-ec2-sg">Security Group da EC2 (<code>aula2-ec2-sg</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>Porta</th>
+<th>Protocolo</th>
+<th>Origem</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>TCP</td>
+<td>0.0.0.0/0</td>
+<td>SSH</td>
+</tr>
+<tr>
+<td>80</td>
+<td>TCP</td>
+<td>0.0.0.0/0</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>TCP</td>
+<td>0.0.0.0/0</td>
+<td>Flask API</td>
+</tr>
+</tbody>
+</table>
+<h4 id="security-group-do-rds-aula2-rds-sg">Security Group do RDS (<code>aula2-rds-sg</code>)</h4>
+<table>
+<thead>
+<tr>
+<th>Porta</th>
+<th>Protocolo</th>
+<th>Origem</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5432</td>
+<td>TCP</td>
+<td>aula2-ec2-sg</td>
+<td>PostgreSQL (apenas da EC2)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-criar-rds-postgresql">2. Criar RDS PostgreSQL</h3>
+<p>No console AWS → RDS → Create Database:</p>
+<table>
+<thead>
+<tr>
+<th>Configuração</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Engine</td>
+<td>PostgreSQL 15</td>
+</tr>
+<tr>
+<td>Template</td>
+<td>Free tier / Dev/Test</td>
+</tr>
+<tr>
+<td>DB Instance Class</td>
+<td>db.t3.micro</td>
+</tr>
+<tr>
+<td>DB Instance Identifier</td>
+<td><code>aula2-postgres</code></td>
+</tr>
+<tr>
+<td>Master Username</td>
+<td><code>postgres</code></td>
+</tr>
+<tr>
+<td>Master Password</td>
+<td>(escolha uma senha segura)</td>
+</tr>
+<tr>
+<td>DB Name</td>
+<td><code>aula2db</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>20 GB gp2</td>
+</tr>
+<tr>
+<td>VPC Security Group</td>
+<td><code>aula2-rds-sg</code></td>
+</tr>
+<tr>
+<td>Public Access</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>Este tutorial mostra como criar uma instância RDS PostgreSQL configurada para usar a extensão pgvector, ideal para aplicações de IA que precisam armazenar e consultar vetores.</p>
+<p>⏳ A criação leva ~5-10 minutos. Anote o <strong>Endpoint</strong> quando estiver disponível.</p>
 </blockquote>
-<h2 id="1-acesse-o-console-aws">1. Acesse o Console AWS</h2>
+<hr />
+<h3 id="3-criar-key-pair">3. Criar Key Pair</h3>
+<p>No console AWS → EC2 → Key Pairs → Create Key Pair:</p>
 <ul>
-<li>Entre em https://aws.amazon.com/ e faça login na sua conta.</li>
+<li><strong>Name</strong>: <code>aula2-key</code></li>
+<li><strong>Type</strong>: RSA</li>
+<li><strong>Format</strong>: .pem</li>
 </ul>
-<h2 id="2-acesse-o-servico-rds">2. Acesse o serviço RDS</h2>
-<ul>
-<li>No menu "Services", procure por <strong>RDS</strong> e clique para abrir o painel.</li>
-</ul>
-<h2 id="3-clique-em-create-database">3. Clique em "Create Database"</h2>
-<ul>
-<li>Clique no botão <strong>Create database</strong>.</li>
-</ul>
-<h2 id="4-configure-o-banco-de-dados">4. Configure o banco de dados</h2>
-<h3 id="opcoes-basicas">Opções básicas:</h3>
-<ul>
-<li><strong>Database creation method</strong>: Standard create</li>
-<li><strong>Engine type</strong>: PostgreSQL</li>
-<li><strong>Version</strong>: PostgreSQL 15.4-R2 ou superior (para suporte ao pgvector)</li>
-</ul>
-<h3 id="templates">Templates:</h3>
-<ul>
-<li><strong>Templates</strong>: Free tier (se elegível) ou Dev/Test</li>
-</ul>
-<h3 id="configuracoes">Configurações:</h3>
-<ul>
-<li><strong>DB instance identifier</strong>: <code>postgres-pgvector</code> (ou nome de sua escolha)</li>
-<li><strong>Master username</strong>: <code>postgres</code></li>
-<li><strong>Master password</strong>: Crie uma senha segura e anote</li>
-</ul>
-<h3 id="configuracao-da-instancia">Configuração da instância:</h3>
-<ul>
-<li><strong>DB instance class</strong>: </li>
-<li>Free tier: <code>db.t3.micro</code></li>
-<li>Produção: <code>db.t3.small</code> ou superior</li>
-<li><strong>Storage type</strong>: General Purpose SSD (gp2)</li>
-<li><strong>Allocated storage</strong>: 20 GB (mínimo)</li>
-</ul>
-<h3 id="conectividade">Conectividade:</h3>
-<ul>
-<li><strong>VPC</strong>: Default VPC</li>
-<li><strong>Public access</strong>: Yes (para acesso externo durante desenvolvimento)</li>
-<li><strong>VPC security group</strong>: Create new</li>
-<li><strong>Database port</strong>: 5432</li>
-</ul>
-<h2 id="5-configuracoes-adicionais">5. Configurações adicionais</h2>
-<h3 id="opcoes-do-banco">Opções do banco:</h3>
-<ul>
-<li><strong>Initial database name</strong>: <code>vectordb</code></li>
-<li><strong>DB parameter group</strong>: default.postgres15 (ou criar um customizado)</li>
-</ul>
-<h3 id="backup">Backup:</h3>
-<ul>
-<li><strong>Backup retention period</strong>: 7 days</li>
-<li><strong>Backup window</strong>: Escolha um horário conveniente</li>
-</ul>
-<h3 id="monitoramento">Monitoramento:</h3>
-<ul>
-<li><strong>Enable Performance Insights</strong>: Recomendado para produção</li>
-</ul>
-<h2 id="6-clique-em-create-database">6. Clique em "Create Database"</h2>
-<ul>
-<li>Revise todas as configurações e clique em <strong>Create database</strong>.</li>
-<li>A criação pode levar de 10-20 minutos.</li>
-</ul>
-<h2 id="7-configure-a-extensao-pgvector">7. Configure a extensão pgvector</h2>
-<p>Após a criação do RDS, conecte-se ao banco e instale a extensão:</p>
-<pre><code class="language-sql">-- Conecte-se ao banco usando psql ou outro cliente
--- psql -h &lt;RDS_ENDPOINT&gt; -U postgres -d vectordb
-
--- Instale a extensão pgvector
-CREATE EXTENSION IF NOT EXISTS vector;
-
--- Verifique se foi instalada
-\dx vector
+<blockquote>
+<p>⚠️ Baixe e guarde o arquivo <code>.pem</code> — ele não pode ser baixado novamente!</p>
+</blockquote>
+<p>No terminal, ajuste as permissões:</p>
+<pre><code class="language-bash">chmod 400 aula2-key.pem
 </code></pre>
-<h2 id="8-teste-a-funcionalidade">8. Teste a funcionalidade</h2>
-<pre><code class="language-sql">-- Crie uma tabela de exemplo com vetores
-CREATE TABLE documents (
-    id SERIAL PRIMARY KEY,
-    filename TEXT,
-    content TEXT,
-    embedding vector(384)  -- Para embeddings de 384 dimensões
-);
-
--- Insira um documento de teste
-INSERT INTO documents (filename, content, embedding) 
-VALUES ('teste.txt', 'Este é um documento de teste', '[0.1, 0.2, 0.3]'::vector);
-
--- Consulte documentos similares
-SELECT filename, content, 
-       1 - (embedding &lt;=&gt; '[0.1, 0.2, 0.4]'::vector) as similarity
-FROM documents 
-ORDER BY embedding &lt;=&gt; '[0.1, 0.2, 0.4]'::vector
-LIMIT 5;
+<hr />
+<h3 id="4-criar-ec2-t3medium">4. Criar EC2 t3.medium</h3>
+<p>No console AWS → EC2 → Launch Instance:</p>
+<table>
+<thead>
+<tr>
+<th>Configuração</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td><code>aula2-api-server</code></td>
+</tr>
+<tr>
+<td>AMI</td>
+<td>Ubuntu Server 22.04 LTS</td>
+</tr>
+<tr>
+<td>Instance Type</td>
+<td><strong>t3.medium</strong> (2 vCPU, 4GB RAM)</td>
+</tr>
+<tr>
+<td>Key Pair</td>
+<td><code>aula2-key</code></td>
+</tr>
+<tr>
+<td>Security Group</td>
+<td><code>aula2-ec2-sg</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>30 GB gp3</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ Usamos t3.medium porque o modelo LLM precisa de ~2GB de RAM para carregar.</p>
+</blockquote>
+<hr />
+<h3 id="5-conectar-na-ec2-via-ssh">5. Conectar na EC2 via SSH</h3>
+<pre><code class="language-bash">ssh -i &quot;aula2-key.pem&quot; ubuntu@&lt;IP_PUBLICO_DA_EC2&gt;
 </code></pre>
-<h2 id="9-configuracoes-de-seguranca">9. Configurações de segurança</h2>
-<h3 id="para-producao">Para produção:</h3>
-<ul>
-<li>Configure o security group para permitir acesso apenas de IPs específicos</li>
-<li>Use SSL/TLS para conexões</li>
-<li>Configure backup automático</li>
-<li>Monitore performance e logs</li>
-</ul>
-<h3 id="string-de-conexao">String de conexão:</h3>
-<pre><code class="language-python"># Exemplo para Python
-import psycopg
-
-conn = psycopg.connect(
-    host=&quot;&lt;RDS_ENDPOINT&gt;&quot;,
-    port=5432,
-    dbname=&quot;vectordb&quot;,
-    user=&quot;postgres&quot;,
-    password=&quot;&lt;SUA_SENHA&gt;&quot;,
-    sslmode=&quot;require&quot;
-)
+<hr />
+<h3 id="6-instalar-python-311">6. Instalar Python 3.11</h3>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install -y software-properties-common git postgresql-client
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
+sudo apt install -y python3.11 python3.11-venv python3.11-dev
 </code></pre>
-<p>Pronto! Seu RDS PostgreSQL está configurado com pgvector para aplicações de IA e busca vetorial.</p>
+<hr />
+<h3 id="7-clonar-o-repositorio">7. Clonar o Repositório</h3>
+<pre><code class="language-bash">mkdir -p /home/ubuntu/aula2_api
+cd /home/ubuntu/aula2_api
+git clone https://github.com/arquitetoitamar/aula-2-api.git .
+cd back
+</code></pre>
+<hr />
+<h3 id="8-habilitar-pgvector-no-rds">8. Habilitar pgvector no RDS</h3>
+<pre><code class="language-bash">PGPASSWORD='&lt;SENHA_RDS&gt;' psql -h &lt;ENDPOINT_RDS&gt; -U postgres -d aula2db -c &quot;CREATE EXTENSION IF NOT EXISTS vector;&quot;
+</code></pre>
+<p>Exemplo:</p>
+<pre><code class="language-bash">PGPASSWORD='Postgres123!' psql -h aula2-postgres.cjrzofqq7bys.us-east-1.rds.amazonaws.com -U postgres -d aula2db -c &quot;CREATE EXTENSION IF NOT EXISTS vector;&quot;
+</code></pre>
+<hr />
+<h3 id="9-configurar-variaveis-de-ambiente">9. Configurar Variáveis de Ambiente</h3>
+<pre><code class="language-bash">cat &gt; .env &lt;&lt; EOF
+DB_HOST=&lt;ENDPOINT_RDS&gt;
+DB_PORT=5432
+DB_NAME=aula2db
+DB_USER=postgres
+DB_PASSWORD=&lt;SENHA_RDS&gt;
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+EOF
+</code></pre>
+<hr />
+<h3 id="10-criar-ambiente-virtual-e-instalar-dependencias">10. Criar Ambiente Virtual e Instalar Dependências</h3>
+<pre><code class="language-bash">python3.11 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+</code></pre>
+<blockquote>
+<p>⏳ A instalação do PyTorch e SentenceTransformers pode levar ~5 minutos.</p>
+</blockquote>
+<hr />
+<h3 id="11-alterar-a-porta-para-5000">11. Alterar a Porta para 5000</h3>
+<p>Edite o arquivo <code>main.py</code> e altere a última linha:</p>
+<pre><code class="language-bash">sed -i 's/port=3000/port=5000/' main.py
+</code></pre>
+<hr />
+<h3 id="12-testar-manualmente">12. Testar Manualmente</h3>
+<pre><code class="language-bash">python main.py
+</code></pre>
+<p>Deve aparecer:</p>
+<pre><code>Carregando LLM: HuggingFaceTB/SmolLM2-360M-Instruct...
+LLM carregado!
+ * Running on http://0.0.0.0:5000
+</code></pre>
+<p>Teste de outro terminal ou navegador: <code>http://&lt;IP_EC2&gt;:5000/api/data</code></p>
+<p>Pare com <code>Ctrl+C</code> após confirmar que funciona.</p>
+<hr />
+<h3 id="13-criar-servico-systemd-rodar-permanentemente">13. Criar Serviço Systemd (rodar permanentemente)</h3>
+<pre><code class="language-bash">sudo tee /etc/systemd/system/aula2api.service &lt;&lt; EOF
+[Unit]
+Description=Aula2 Flask API
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/aula2_api/back
+Environment=&quot;PATH=/home/ubuntu/aula2_api/back/venv/bin&quot;
+ExecStart=/home/ubuntu/aula2_api/back/venv/bin/python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable aula2api
+sudo systemctl start aula2api
+</code></pre>
+<hr />
+<h3 id="14-verificar-se-esta-rodando">14. Verificar se está Rodando</h3>
+<pre><code class="language-bash"># Status do serviço
+sudo systemctl status aula2api
+
+# Logs em tempo real
+sudo journalctl -u aula2api -f
+
+# Testar localmente
+curl http://localhost:5000/api/data
+</code></pre>
+<hr />
+<h2 id="endpoints-da-api">Endpoints da API</h2>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Descrição</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/data</code></td>
+<td>Health check</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/upload</code></td>
+<td>Upload de documento</td>
+<td><code>file</code> (multipart)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/documents</code></td>
+<td>Lista documentos</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/ask</code></td>
+<td>Busca em documento específico</td>
+<td><code>{"question": "...", "doc_id": 1}</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/ask_all</code></td>
+<td>Busca em todos os documentos</td>
+<td><code>{"question": "..."}</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/chat</code></td>
+<td>Chat com RAG + LLM</td>
+<td><code>{"question": "..."}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="exemplos-de-uso-com-curl">Exemplos de uso com curl</h3>
+<pre><code class="language-bash"># Health check
+curl http://&lt;IP_EC2&gt;:5000/api/data
+
+# Upload de documento
+curl -X POST http://&lt;IP_EC2&gt;:5000/upload -F &quot;file=@documento.pdf&quot;
+
+# Listar documentos
+curl http://&lt;IP_EC2&gt;:5000/documents
+
+# Busca semântica em todos
+curl -X POST http://&lt;IP_EC2&gt;:5000/ask_all \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;question&quot;: &quot;o que é inteligência artificial?&quot;}'
+
+# Chat com RAG
+curl -X POST http://&lt;IP_EC2&gt;:5000/chat \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;question&quot;: &quot;resuma o documento&quot;}'
+</code></pre>
+<hr />
+<h2 id="frontend">Frontend</h2>
+<p>O arquivo <code>front/index.html</code> é um chat web que se conecta à API. Para usar:</p>
+<ol>
+<li>Abra o arquivo no navegador</li>
+<li>No campo <strong>API URL</strong> (canto inferior esquerdo), coloque: <code>http://&lt;IP_EC2&gt;:5000</code></li>
+<li>Faça upload de um documento</li>
+<li>Converse com o agente IA</li>
+</ol>
+<hr />
+<h2 id="comandos-uteis">Comandos Úteis</h2>
+<pre><code class="language-bash"># Reiniciar API
+sudo systemctl restart aula2api
+
+# Ver logs
+sudo journalctl -u aula2api -f
+
+# Parar API
+sudo systemctl stop aula2api
+
+# Conectar no banco
+PGPASSWORD='&lt;SENHA&gt;' psql -h &lt;ENDPOINT_RDS&gt; -U postgres -d aula2db
+
+# Ver documentos no banco
+SELECT id, filename FROM documents;
+
+# Ver extensões instaladas
+\dx
+</code></pre>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Solução</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type "vector" does not exist</code></td>
+<td>Execute <code>CREATE EXTENSION IF NOT EXISTS vector;</code> no RDS</td>
+</tr>
+<tr>
+<td>API não inicia</td>
+<td>Verifique <code>.env</code> com <code>cat .env</code> e logs com <code>journalctl -u aula2api</code></td>
+</tr>
+<tr>
+<td>Não conecta no RDS</td>
+<td>Verifique se o SG do RDS permite a porta 5432 do SG da EC2</td>
+</tr>
+<tr>
+<td>Timeout no upload</td>
+<td>Documentos grandes demoram para gerar embeddings — aguarde</td>
+</tr>
+<tr>
+<td>Porta 5000 não acessível</td>
+<td>Verifique se o SG da EC2 tem a porta 5000 aberta</td>
+</tr>
+<tr>
+<td><code>ModuleNotFoundError</code></td>
+<td>Ative o venv: <code>source /home/ubuntu/aula2_api/back/venv/bin/activate</code></td>
+</tr>
+<tr>
+<td>Memória insuficiente</td>
+<td>t3.medium tem 4GB — se travar, reinicie: <code>sudo systemctl restart aula2api</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conceitos-chave">Conceitos-Chave</h2>
+<h3 id="rag-retrieval-augmented-generation">RAG (Retrieval-Augmented Generation)</h3>
+<p>Técnica que combina busca semântica com geração de texto:
+1. Documentos são divididos em chunks e convertidos em vetores (embeddings)
+2. Na pergunta, busca os chunks mais similares por distância vetorial
+3. Usa esses chunks como contexto para o LLM gerar a resposta</p>
+<h3 id="embeddings">Embeddings</h3>
+<p>Representação numérica do significado de um texto. Textos similares ficam próximos no espaço vetorial (384 dimensões).</p>
+<h3 id="pgvector">pgvector</h3>
+<p>Extensão do PostgreSQL para armazenar e buscar vetores. Operador <code>&lt;-&gt;</code> calcula distância euclidiana.</p>
+<h3 id="chunking">Chunking</h3>
+<p>Dividir documentos em pedaços menores (500 chars, overlap 50) antes de indexar. Sem chunking, a busca perde precisão.</p>
+<hr />
+<h2 id="entregaveis">Entregáveis</h2>
+<ol>
+<li>✅ EC2 t3.medium rodando a API na porta 5000</li>
+<li>✅ RDS PostgreSQL com pgvector habilitado</li>
+<li>✅ API respondendo em <code>http://&lt;IP_EC2&gt;:5000</code></li>
+<li>✅ Upload de pelo menos 1 documento</li>
+<li>✅ Demonstração do chat funcionando com RAG</li>
+</ol>
 
 
 

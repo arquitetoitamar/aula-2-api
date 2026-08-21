@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -9,18 +9,28 @@
       
       
       
+        <link rel="prev" href="../criar-bucket-s3/">
+      
+      
+        <link rel="next" href="../conectar-ec2-rds/">
+      
+      
+        
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>omo criar um site estático no S3 - Plataforma Cognitiva</title>
+        <title>Como criar site no S3 - Plataforma Cognitiva</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -45,11 +55,17 @@
 
     
     
-    
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -59,7 +75,7 @@
       
         
         <a href="#omo-criar-um-site-estatico-no-s3" class="md-skip">
-          Skip to content
+          Pular para conteúdo
         </a>
       
     </div>
@@ -73,7 +89,7 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../.." title="Plataforma Cognitiva" class="md-header__button md-logo" aria-label="Plataforma Cognitiva" data-md-component="logo">
       
   
@@ -94,12 +110,38 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              omo criar um site estático no S3
+              Como criar site no S3
             
           </span>
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -116,16 +158,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Pesquisar">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -136,7 +178,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Inicializando busca
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -170,7 +212,7 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Plataforma Cognitiva" class="md-nav__button md-logo" aria-label="Plataforma Cognitiva" data-md-component="logo">
       
@@ -187,20 +229,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -208,18 +250,27 @@
   
   
   <span class="md-ellipsis">
-    Guia de implementação
+    
+  
+    Guia de Implementação
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Guia de implementação
+            
+  
+    Guia de Implementação
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -235,9 +286,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -252,39 +308,244 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../considerations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Considerações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additional-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos Adicionais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../revisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revisões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
-    Tutorials
+    
+  
+    Tutoriais
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_8">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            
+  
+    Tutoriais
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trabalho-pratico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Trabalho Prático (Passo a Passo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -298,9 +559,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Como criar EC2 Ubuntu
+  
+
     
   </span>
+  
   
 
       </a>
@@ -321,9 +587,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Como criar RDS PostgreSQL com pgvector
+  
+
     
   </span>
+  
   
 
       </a>
@@ -339,14 +610,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../criar-s3.md" class="md-nav__link">
+      <a href="../criar-bucket-s3/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
+    
+  
     Como criar Bucket S3
+  
+
     
   </span>
+  
   
 
       </a>
@@ -359,20 +635,149 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../criar-site.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como criar site no S3
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Como criar site no S3 e CloudFront
+    
+  
+    Como criar site no S3
+  
+
     
   </span>
   
+  
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-acesse-o-console-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Acesse o Console AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-acesse-o-servico-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Acesse o serviço S3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-crie-um-bucket-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Crie um bucket S3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-carregue-os-arquivos-do-seu-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Carregue os arquivos do seu site
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configure-o-bucket-para-hospedagem-de-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configure o bucket para hospedagem de site
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-defina-permissoes-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Defina permissões de acesso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-acesse-seu-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Acesse seu site
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -390,9 +795,14 @@
   
   
   <span class="md-ellipsis">
-    Como conectar o ec2 no RDS
+    
+  
+    Como conectar EC2 ao RDS
+  
+
     
   </span>
+  
   
 
       </a>
@@ -441,9 +851,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Plataformas e Níveis de Maturidade
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -452,7 +867,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Plataformas e Níveis de Maturidade
+            
+  
+    Plataformas e Níveis de Maturidade
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -468,9 +887,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Visão Geral
+  
+
     
   </span>
+  
   
 
       </a>
@@ -491,9 +915,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Nivel 1 - Hardware e Infraestrutura
+  
+
     
   </span>
+  
   
 
       </a>
@@ -514,9 +943,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Nivel 2 - Modelos e Serviços de ML
+  
+
     
   </span>
+  
   
 
       </a>
@@ -537,9 +971,14 @@
   
   
   <span class="md-ellipsis">
-    Nivel 3 - Aplicacoes e Serviços de IA
+    
+  
+    Nivel 3 - Aplicações e Serviços de IA
+  
+
     
   </span>
+  
   
 
       </a>
@@ -568,7 +1007,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
@@ -577,14 +1016,16 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Índice
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#1-acesse-o-console-aws" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Acesse o Console AWS
+      
+        1. Acesse o Console AWS
+      
     </span>
   </a>
   
@@ -593,7 +1034,9 @@
         <li class="md-nav__item">
   <a href="#2-acesse-o-servico-s3" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Acesse o serviço S3
+      
+        2. Acesse o serviço S3
+      
     </span>
   </a>
   
@@ -602,7 +1045,9 @@
         <li class="md-nav__item">
   <a href="#3-crie-um-bucket-s3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Crie um bucket S3
+      
+        3. Crie um bucket S3
+      
     </span>
   </a>
   
@@ -611,7 +1056,9 @@
         <li class="md-nav__item">
   <a href="#4-carregue-os-arquivos-do-seu-site" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Carregue os arquivos do seu site
+      
+        4. Carregue os arquivos do seu site
+      
     </span>
   </a>
   
@@ -620,7 +1067,9 @@
         <li class="md-nav__item">
   <a href="#5-configure-o-bucket-para-hospedagem-de-site" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Configure o bucket para hospedagem de site
+      
+        5. Configure o bucket para hospedagem de site
+      
     </span>
   </a>
   
@@ -629,7 +1078,9 @@
         <li class="md-nav__item">
   <a href="#6-defina-permissoes-de-acesso" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Defina permissões de acesso
+      
+        6. Defina permissões de acesso
+      
     </span>
   </a>
   
@@ -638,7 +1089,9 @@
         <li class="md-nav__item">
   <a href="#7-acesse-seu-site" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Acesse seu site
+      
+        7. Acesse seu site
+      
     </span>
   </a>
   
@@ -654,6 +1107,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -765,10 +1219,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
